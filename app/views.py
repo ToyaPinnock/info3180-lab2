@@ -15,7 +15,7 @@ from flask import render_template, request, redirect, url_for, flash
 @app.route('/profile')
 def profile():
 
-    return render_template('profile.html', date="feb,2 202")
+    return render_template('profile.html', date=format_date_joined(2020,7,1))
 
 
 
@@ -59,8 +59,8 @@ def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
 
-def format_date_joined(date):
-    date_joined= datetime.date(date)
+def format_date_joined(year, month, day):
+    date_joined= datetime.date(year, month,day)
     return date_joined.strftime("%B, %Y")
 
 
